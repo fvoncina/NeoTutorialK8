@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+
+  demok8-frontend:
+    container_name: demok8-frontend
+    image: demok8-frontend:latest    
+    build: FrontEnd/    
+    ports:
+      - "5001:5001"
+    networks:
+      - demok8
+    environment:
+      - NODE_ENV=docker
+      - BACKEND_URL=http://demok8-backend:5000    
+
+  demok8-backend:
+    container_name: demok8-backend
+    image: demok8-backend:latest    
+    build: BackEnd/    
+    ports:
+      - "5000:5000"
+    networks:
+      - demok8
+    environment:
+      - NODE_ENV=docker      
+
+networks:
+  demok8:
+    driver: bridge

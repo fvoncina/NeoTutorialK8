@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: ./kompose convert
+    kompose.version: 1.12.0 (0ab07be)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: demok8-frontend
+  name: demok8-frontend
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: demok8-frontend
+    spec:
+      containers:
+      - env:
+        - name: BACKEND_URL
+          value: http://demok8-backend:5000
+        - name: NODE_ENV
+          value: docker
+        image: fvoncina/demok8-frontend:latest
+        name: demok8-frontend
+        ports:
+        - containerPort: 5001
+        resources: {}
+      restartPolicy: Always
+status: {}

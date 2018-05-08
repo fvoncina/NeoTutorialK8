@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: ./kompose convert
+    kompose.version: 1.12.0 (0ab07be)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: demok8-frontend
+  name: demok8-frontend
+spec:
+  ports:
+  - name: "5001"
+    port: 80
+    targetPort: 5001
+  selector:
+    io.kompose.service: demok8-frontend
+status:
+  loadBalancer: {}

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>NEO Tuto K8</title>
+</head>
+<body>
+    <h1>Tutorial NEO K8</h1>
+    <hr />
+    <h3>
+        FrontEnd
+    </h3>
+    <p>
+        <b>Version: </b> {{-@frontend.version}}
+    </p>
+    <p>
+        <b>Environment: </b> {{-@frontend.environment}}
+    </p>
+    <hr />
+    <h3>
+        BackEnd
+    </h3>
+    <p>
+        <b>Url: </b> {{-@backend.url}}
+    </p>
+    {{if @backend.error:}}
+    <p>
+        <b>Error: </b>{{-@backend.error}}
+    </p>
+    {{else:}}
+    <p>
+        <b>Version: </b> {{-@backend.version}}
+    </p>
+    <p>
+        <b>Environment: </b> {{-@backend.environment}}
+    </p>
+    {{end}}
+
+</body>
+</html>
