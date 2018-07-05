@@ -7,6 +7,8 @@ module.exports = (app) => {
 
     router.get('/', async (ctx) => {
 
+        console.log('frontend');
+
         const backendUrl = `${app.conf.backend_url}/api/values`;
 
         let backendResponse = {};
